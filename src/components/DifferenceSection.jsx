@@ -42,7 +42,7 @@ function DifferenceSection() {
                     entry.target.classList.remove('difference--visible');
                 }
             },
-            { threshold: 0.1 }
+            { threshold: 0.4 }
         );
 
         if (sectionRef.current) {

@@ -45,7 +45,7 @@ function MovingDots() {
 
                 ctx.beginPath();
                 ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(10, 15, 36, 0.15)'; // Subtle dark blue-grey
+                ctx.fillStyle = 'rgba(10, 15, 36, 0.4)'; // Darker for visibility
                 ctx.fill();
 
                 // Draw connections
@@ -59,7 +59,7 @@ function MovingDots() {
                         ctx.beginPath();
                         ctx.moveTo(dot.x, dot.y);
                         ctx.lineTo(otherDot.x, otherDot.y);
-                        ctx.strokeStyle = `rgba(10, 15, 36, ${0.1 * (1 - distance / connectionDistance)})`;
+                        ctx.strokeStyle = `rgba(10, 15, 36, ${0.35 * (1 - distance / connectionDistance)})`;
                         ctx.stroke();
                     }
                 }

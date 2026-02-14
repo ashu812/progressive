@@ -31,38 +31,49 @@ function PainPointSection() {
             <MovingDots />
 
             <div className="painpoint__content">
-                <p className="painpoint__text painpoint__anim painpoint__anim--1">
-                    If you have a factory, then you know how it feels, right?
-                </p>
-
-                <p className="painpoint__text painpoint__anim painpoint__anim--2">
-                    The plan looked fine yesterday. Today, dates have moved.<br />
-                    Someone adjusted something.
-                </p>
-
-                <p className="painpoint__text painpoint__anim painpoint__anim--3">
-                    And now you're losing your mind!
-                </p>
-
-                <p className="painpoint__highlight painpoint__anim painpoint__anim--4">
-                    But with vNiryat by your side, you don't have to worry.<br />
-                    <span className="painpoint__highlight-sub">
-                        We are here to stop this never-ending cycle.
-                    </span>
-                </p>
-
-                <div className="painpoint__details painpoint__anim painpoint__anim--5">
-                    <p>We lock plans in place. We surface risks early.</p>
-                    <p>
-                        And we give you a steady view of what's really happening.<br />
-                        Factories across India, Bangladesh, Vietnam, and China trust<br />
-                        us to turn chaos into rhythm!
-                    </p>
+                <div className="painpoint__card-wrapper painpoint__card-wrapper--1 painpoint__anim">
+                    <div className="painpoint__card">
+                        <div className="painpoint__icon">🏭</div>
+                        <h3>The Reality</h3>
+                        <p>
+                            "If you have a factory, you know the feeling.<br />
+                            The plan looked fine yesterday. Today, dates have moved.<br />
+                            <strong>Someone adjusted something.</strong>"
+                        </p>
+                    </div>
                 </div>
 
-                <a href="#demo" className="painpoint__cta painpoint__anim painpoint__anim--6">
-                    See how vNiryat creates control.
-                </a>
+                {/* Card 2: The Breaking Point (Right) */}
+                <div className="painpoint__card-wrapper painpoint__card-wrapper--2 painpoint__anim">
+                    <div className="painpoint__card">
+                        <div className="painpoint__icon">🤯</div>
+                        <h3>The Chaos</h3>
+                        <p>
+                            "Materials are delayed. Shipments are at risk.<br />
+                            And now you're losing your mind trying to fix it!"
+                        </p>
+                    </div>
+                </div>
+
+                {/* Card 3: The Solution (Center) */}
+                <div className="painpoint__card-wrapper painpoint__card-wrapper--3 painpoint__anim">
+                    <div className="painpoint__card">
+                        <div className="painpoint__icon">✨</div>
+                        <h3>The vNiryat Way</h3>
+                        <p className="painpoint__highlight">
+                            We stop this never-ending cycle.
+                        </p>
+                        <div className="painpoint__details">
+                            <p>
+                                We lock plans in place. We surface risks early.<br />
+                                And we give you a steady view of what's really happening.
+                            </p>
+                        </div>
+                        <a href="#demo" className="painpoint__cta">
+                            See how vNiryat creates control
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     );

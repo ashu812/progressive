@@ -49,20 +49,21 @@
 }
 
 /* Card Styling */
+/* Card Styling */
 .difference__card {
-    background: rgba(255, 255, 255, 0.9);
-    /* Slight transparency */
-    backdrop-filter: blur(5px);
+    background: linear-gradient(145deg, #ffffff 0%, #f1f7ff 100%);
+    backdrop-filter: blur(10px);
     padding: 2rem 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, opacity 1s ease;
+    border-radius: 16px;
+    /* Slightly more rounded */
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05), 0 5px 10px -5px rgba(0, 0, 0, 0.02);
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
     opacity: 0;
     cursor: default;
-    border: 1px solid transparent;
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 /* Individual start positions for "fly in" effect */
@@ -96,27 +97,89 @@
 }
 
 .difference__card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    border-color: rgba(37, 99, 235, 0.2);
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.25);
+    border-color: rgba(37, 99, 235, 0.3);
+    z-index: 10;
 }
 
 /* Icon Styling */
 .difference__icon-wrapper {
-    background: #eff6ff;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
     color: #2563eb;
-    padding: 1rem;
+    padding: 1.2rem;
     border-radius: 50%;
-    margin-bottom: 1rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Bouncy transition */
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);
+}
+
+/* Continuous floating animation for the icon itself */
+.difference__icon-wrapper svg {
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+.difference__card:nth-child(odd) .difference__icon-wrapper svg {
+    animation-duration: 3.5s;
+    /* Stagger timing */
+}
+
+.difference__card:nth-child(even) .difference__icon-wrapper svg {
+    animation-duration: 4s;
+    animation-delay: 0.5s;
+}
+
+@keyframes floatIcon {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
 }
 
 .difference__card:hover .difference__icon-wrapper {
-    background: #2563eb;
+    background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
     color: #fff;
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+}
+
+.difference__card:hover .difference__icon-wrapper svg {
+    animation: none;
+    /* Pause float on hover to prevent conflict with rotate/scale if needed, or keep it */
+}
+
+/* Subtle breathing animation for cards */
+.difference--visible .difference__card {
+    opacity: 1;
+    transform: translate(0, 0);
+    animation: cardBreathe 5s ease-in-out infinite alternate;
+}
+
+.difference__card:nth-child(2n) {
+    animation-delay: 1s;
+}
+
+.difference__card:nth-child(3n) {
+    animation-delay: 2s;
+}
+
+@keyframes cardBreathe {
+    0% {
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05), 0 5px 10px -5px rgba(0, 0, 0, 0.02);
+    }
+
+    100% {
+        box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.1), 0 8px 15px -5px rgba(37, 99, 235, 0.05);
+    }
 }
 
 .difference__text {

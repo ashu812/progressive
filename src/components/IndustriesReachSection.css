@@ -1,0 +1,213 @@
+/* --- Layout --- */
+.reach {
+    min-height: auto;
+    padding: 4rem 0;
+    /* Full width marquee, so padding 0 on sides optional, but let's keep vertical */
+    background: #f8fafc;
+    /* Light gray background (same as Section 3/4ish) */
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.reach__container {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* --- Header --- */
+.reach__header {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reach-visible .reach__header {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reach__title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    /* Dark Blue/Slate */
+    margin-bottom: 0.5rem;
+}
+
+.reach__title-highlight {
+    background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.reach__subtitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #334155;
+    /* Dark Slate */
+    margin-bottom: 1.5rem;
+}
+
+.reach__description {
+    font-size: 1.1rem;
+    color: #64748b;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- Marquee --- */
+.reach__marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0;
+    position: relative;
+    display: flex;
+}
+
+/* Blur effects on edges to blend marquee */
+.reach__marquee-wrapper::before,
+.reach__marquee-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.reach__marquee-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, #f8fafc 0%, transparent 100%);
+}
+
+.reach__marquee-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, #f8fafc 0%, transparent 100%);
+}
+
+.reach__marquee {
+    display: flex;
+    gap: 1.5rem;
+    /* Determine width based on content or let it flow? 
+       For infinite scroll, we need duplicate content. width fit-content.
+    */
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+.reach__marquee:hover {
+    animation-play-state: paused;
+    /* Pause on hover */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.33%);
+    }
+
+    /* Move 1/3 if we have 3 sets */
+}
+
+/* --- Cards --- */
+.reach__card {
+    width: 320px;
+    height: 180px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    cursor: default;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.reach__card:hover {
+    transform: scale(1.05);
+}
+
+.reach__card-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease;
+}
+
+.reach__card:hover .reach__card-bg {
+    transform: scale(1.1);
+}
+
+.reach__card-overlay {
+    position: absolute;
+    inset: 0;
+    background: #0033a0;
+    /* Strong Blue */
+    opacity: 0.85;
+    /* Heavy overlay to match design */
+    mix-blend-mode: multiply;
+    /* Or normal with high opacity */
+    transition: opacity 0.3s ease;
+}
+
+.reach__card-flag {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    /* Subtle watermark */
+    filter: grayscale(100%) contrast(1.2);
+    /* Black and white style */
+    z-index: 1;
+    pointer-events: none;
+    transform: scale(1.2) rotate(-5deg);
+    /* Slight artistic tilt */
+}
+
+.reach__card-title {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .reach__title {
+        font-size: 2.5rem;
+    }
+
+    .reach__subtitle {
+        font-size: 1.4rem;
+    }
+
+    .reach__card {
+        width: 260px;
+        height: 150px;
+    }
+}

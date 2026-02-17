@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 
-function MovingDots() {
+function MovingDots({ color = '10, 15, 36' }) {
     const canvasRef = useRef(null);
 
     useEffect(() => {
@@ -9,11 +9,21 @@ function MovingDots() {
         let animationFrameId;
 
         const resizeCanvas = () => {
-            canvas.width = canvas.parentElement.clientWidth;
-            canvas.height = canvas.parentElement.clientHeight;
+            const parent = canvas.parentElement;
+            if (parent) {
+                canvas.width = parent.clientWidth;
+                canvas.height = parent.clientHeight;
+            }
         };
 
-        window.addEventListener('resize', resizeCanvas);
+        const resizeObserver = new ResizeObserver(() => {
+            resizeCanvas();
+        });
+
+        if (canvas.parentElement) {
+            resizeObserver.observe(canvas.parentElement);
+        }
+
         resizeCanvas();
 
         const dots = [];
@@ -45,7 +55,7 @@ function MovingDots() {
 
                 ctx.beginPath();
                 ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(10, 15, 36, 0.4)'; // Darker for visibility
+                ctx.fillStyle = `rgba(${color}, 0.4)`;
                 ctx.fill();
 
                 // Draw connections
@@ -59,7 +69,7 @@ function MovingDots() {
                         ctx.beginPath();
                         ctx.moveTo(dot.x, dot.y);
                         ctx.lineTo(otherDot.x, otherDot.y);
-                        ctx.strokeStyle = `rgba(10, 15, 36, ${0.35 * (1 - distance / connectionDistance)})`;
+                        ctx.strokeStyle = `rgba(${color}, ${0.35 * (1 - distance / connectionDistance)})`;
                         ctx.stroke();
                     }
                 }
@@ -71,7 +81,7 @@ function MovingDots() {
         animate();
 
         return () => {
-            window.removeEventListener('resize', resizeCanvas);
+            resizeObserver.disconnect();
             cancelAnimationFrame(animationFrameId);
         };
     }, []);

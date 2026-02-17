@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import './HeroSection.css';
 const heroBg = 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop';
 
-function HeroSection() {
+function HeroSection({ onBookDemo }) {
     const sectionRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -43,9 +43,9 @@ function HeroSection() {
                     Clear plans. Steady execution. Zero surprises.
                 </p>
                 <div className="hero__actions hero__anim hero__anim--4">
-                    <a href="#demo" className="hero__cta">
+                    <button onClick={onBookDemo} className="hero__cta">
                         Book A Demo
-                    </a>
+                    </button>
                 </div>
             </div>
 

@@ -1,0 +1,142 @@
+.cta-section {
+    position: relative;
+    padding: 6rem 1.5rem;
+    color: white;
+    text-align: center;
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    /* Deep blue background based on screenshot */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Background Image / Overlay */
+.cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop');
+    /* Meeting/Table image for context */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    /* Subtle background image */
+    mix-blend-mode: overlay;
+    z-index: 0;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    /* Spacing between elements */
+}
+
+/* Typography */
+.cta-headline {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cta-headline span {
+    color: #60a5fa;
+    /* Lighter blue for emphasis */
+}
+
+.cta-subtext {
+    font-size: 1.25rem;
+    color: #e2e8f0;
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s;
+}
+
+/* Button */
+.cta-button {
+    background-color: white;
+    color: #1e3a8a;
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    /* Pill shape */
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s,
+        transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s,
+        box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(0.95);
+    /* Slight lift */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    background-color: #f8fafc;
+}
+
+.cta-button:active {
+    transform: translateY(1px) scale(0.95);
+}
+
+/* Footer Text */
+.cta-footer-text {
+    font-size: 1rem;
+    color: #94a3b8;
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s;
+}
+
+/* Animations Trigger */
+.cta-visible .cta-headline,
+.cta-visible .cta-subtext,
+.cta-visible .cta-button,
+.cta-visible .cta-footer-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cta-visible .cta-button {
+    transform: translateY(0) scale(1);
+}
+
+.cta-visible .cta-button:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cta-headline {
+        font-size: 2.2rem;
+    }
+
+    .cta-subtext {
+        font-size: 1.1rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
+    }
+}

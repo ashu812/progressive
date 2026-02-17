@@ -69,7 +69,14 @@ function PainPointSection() {
                                 And we give you a steady view of what's really happening.
                             </p>
                         </div>
-                        <a href="#demo" className="painpoint__cta">
+                        <a
+                            href="#ai-erp"
+                            className="painpoint__cta"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById('ai-erp')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                        >
                             See how vNiryat creates control
                         </a>
                     </div>

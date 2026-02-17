@@ -17,7 +17,7 @@ function Navbar() {
 
     return (
         <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${isVisible ? 'navbar--visible' : ''} `}>
-            <div className="navbar__logo">
+            <div className="navbar__logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                 <span className="navbar__logo-v">V</span>
                 <span className="navbar__logo-text">NIRYAT</span>
                 <span className="navbar__logo-tagline">ERP @ AI INTELLIGENT</span>
@@ -36,8 +36,15 @@ function Navbar() {
             <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''} `}>
                 <li><a href="#home" className="navbar__link navbar__link--active">HOME</a></li>
                 <li><a href="#about" className="navbar__link">ABOUT</a></li>
-                <li><a href="#work" className="navbar__link">WORK</a></li>
-                <li><a href="#account" className="navbar__link">ACCOUNT</a></li>
+                <li><a
+                    href="#ai-erp"
+                    className="navbar__link"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setMenuOpen(false);
+                        document.getElementById('ai-erp')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                >WORK</a></li>
             </ul>
         </nav>
     );

@@ -1,0 +1,359 @@
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Modal Container */
+.modal-container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 1100px;
+    height: 90vh;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    overflow: hidden;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    color: #4b5563;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.modal-close:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Layout */
+.modal-layout {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Left Side - Marketing/Info */
+.modal-left {
+    width: 45%;
+    background: linear-gradient(135deg, #FFF5E6 0%, #E6F3FF 100%);
+    /* Soft gradient like Zoho */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-left__content {
+    padding: 3rem;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.modal-brand {
+    display: flex;
+    align-items: baseline;
+    gap: 0.2rem;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
+}
+
+.modal-brand__logo-v {
+    font-weight: 500;
+    font-size: 2rem;
+    color: #fff;
+    /* White V */
+    /* Assuming a dark background or just white text if on dark. Screenshot has white text on dark blue header? 
+       Wait, the modal left panel is light gradient. 
+       The screenshot shows "V NIRYAT" in white on a dark blue background? 
+       Ah, the screenshot provided is just the LOGO reference on a dark background. 
+       But my modal left panel is light. 
+       I should probably make the text dark (or the brand colors) to be visible on the light gradient.
+       Let's use the brand Dark Blue/Black for contrast on the light background.
+    */
+    color: #111827;
+    margin-right: 0.1rem;
+}
+
+.modal-brand__text {
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+    color: #111827;
+    margin-right: 1rem;
+}
+
+.modal-brand__tagline {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+    text-transform: uppercase;
+    align-self: center;
+    margin-left: 0.5rem;
+    border-left: 1px solid #9ca3af;
+    padding-left: 0.75rem;
+    line-height: 1.2;
+}
+
+.modal-left__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #111827;
+    margin-bottom: 1.5rem;
+    font-family: inherit;
+}
+
+.modal-left__description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #374151;
+    margin-bottom: 3rem;
+}
+
+.modal-left__features h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+.modal-left__features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-left__features li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4b5563;
+    margin-bottom: 1rem;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.modal-left__features li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #6b7280;
+}
+
+.modal-left__footer {
+    margin-top: auto;
+    font-size: 0.95rem;
+    color: #4b5563;
+    padding-top: 2rem;
+}
+
+/* Right Side - Form */
+.modal-right {
+    width: 55%;
+    padding: 2.5rem 3rem;
+    overflow-y: auto;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 2rem;
+}
+
+/* Form Styling */
+.demo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group--full {
+    width: 100%;
+}
+
+/* Input with Icons */
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    color: #9ca3af;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon--top {
+    top: 1rem;
+    align-items: flex-start;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 3rem;
+    /* Left padding for icon */
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #111827;
+    background-color: #fff;
+    transition: all 0.2s ease;
+    outline: none;
+    font-family: inherit;
+}
+
+.form-select {
+    padding-left: 1rem;
+}
+
+.input-with-icon .form-select {
+    padding-left: 3rem;
+}
+
+/* Special handling for selects if we want consistency, but screenshot shows plain selects primarily? 
+   Actually, the screenshot shows icons for text/email etc. and standard selects/dropdowns.
+   Let's keep icons for inputs and standard style for dropdowns as implemented in JSX.
+*/
+.form-select {
+    color: #4b5563;
+}
+
+.form-select:valid {
+    color: #111827;
+}
+
+.form-input:hover,
+.form-select:hover,
+.form-textarea:hover {
+    border-color: #d1d5db;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+::placeholder {
+    color: #9ca3af;
+    opacity: 1;
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #f7553b;
+    /* Reddish orange like Zoho/Niryat potentially? Or standard blue? Keeping consistent blue if not specified, or matching contrast request. */
+    /* Screenshot has a "Sign up now" which is blue-ish? No, "Book Demo" usually stands out. 
+       Wait, the Zoho screenshot button is cut off? No, standard Zoho is usually red/orange/blue.
+       Let's stick to a strong Blue as per previous branding or maybe a Gradient.
+       The user said "contrast the website". Niryat site is dark. So white modal is good.
+       Button should be a strong action color.
+    */
+    background-color: #ea4335;
+    /* Google/Zoho style red */
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #d93025;
+}
+
+/* Scrollbar hiding for cleaner look */
+.modal-right::-webkit-scrollbar,
+.modal-left__content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-right::-webkit-scrollbar-track,
+.modal-left__content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-right::-webkit-scrollbar-thumb,
+.modal-left__content::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .modal-container {
+        flex-direction: column;
+        height: auto;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-layout {
+        flex-direction: column;
+    }
+
+    .modal-left,
+    .modal-right {
+        width: 100%;
+        overflow: visible;
+    }
+
+    .modal-left__content {
+        padding: 2rem;
+    }
+
+    .modal-right {
+        padding: 2rem;
+    }
+
+    .modal-close {
+        color: #111;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+}

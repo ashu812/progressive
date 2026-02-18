@@ -4,7 +4,8 @@
     min-height: auto;
     padding: 3rem 2rem;
     /* Reduced from 6rem */
-    background: #ffffff;
+    background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;

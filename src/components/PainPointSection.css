@@ -1,7 +1,8 @@
 .painpoint {
     position: relative;
     padding: 4rem 2rem;
-    background: #f4f6f9;
+    background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
+    background-attachment: fixed;
     overflow: hidden;
     min-height: 100vh;
     display: flex;
@@ -81,7 +82,7 @@
 /* --- Card 2: The Chaos (Right, Middle) --- */
 .painpoint__card-wrapper--2 {
     top: 20%;
-    right: 2%;
+    right: -2%;
     transform: translateX(50px) rotate(2deg);
     z-index: 2;
 }

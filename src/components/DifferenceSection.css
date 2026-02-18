@@ -1,6 +1,7 @@
 .difference {
     padding: 2rem;
-    background: #f4f6f9;
+    background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
+    background-attachment: fixed;
     text-align: center;
     overflow: hidden;
     position: relative;

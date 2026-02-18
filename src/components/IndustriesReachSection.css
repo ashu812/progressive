@@ -3,7 +3,8 @@
     min-height: auto;
     padding: 4rem 0;
     /* Full width marquee, so padding 0 on sides optional, but let's keep vertical */
-    background: #f8fafc;
+    background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
+    background-attachment: fixed;
     /* Light gray background (same as Section 3/4ish) */
     position: relative;
     overflow: hidden;

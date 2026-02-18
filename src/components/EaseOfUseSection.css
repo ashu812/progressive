@@ -2,7 +2,8 @@
 .ease {
     min-height: 100vh;
     padding: 6rem 2rem;
-    background: #f4f6f9;
+    background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;

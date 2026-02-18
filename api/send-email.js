@@ -32,15 +32,21 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    // Check for required env vars
-    const requiredEnvVars = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_SECURE', 'SMTP_USER', 'SMTP_PASS'];
-    const missingVars = requiredEnvVars.filter(v => !process.env[v]);
-    if (missingVars.length > 0) {
-        return res.status(500).json({
-            error: 'Server misconfigured',
-            details: `Missing environment variables: ${missingVars.join(', ')}`
-        });
-    }
+    // DEBUG: Temporarily return config info to diagnose env var issues
+    // REMOVE THIS AFTER DEBUGGING
+    const smtpConfig = {
+        host: process.env.SMTP_HOST || '(not set)',
+        port: process.env.SMTP_PORT || '(not set)',
+        secure: process.env.SMTP_SECURE || '(not set)',
+        user: process.env.SMTP_USER ? '✓ set' : '✗ missing',
+        pass: process.env.SMTP_PASS ? '✓ set' : '✗ missing',
+    };
+
+    return res.status(200).json({
+        debug: true,
+        message: 'Debug mode - showing env var status',
+        config: smtpConfig
+    });
 
     // Configure the transporter
     const transporter = nodemailer.createTransport({

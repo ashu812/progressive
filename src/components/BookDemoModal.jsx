@@ -61,11 +61,12 @@ const BookDemoModal = ({ isOpen, onClose }) => {
                 });
                 onClose();
             } else {
-                throw new Error('Failed to send request');
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.details || errorData.error || `Server error: ${response.status}`);
             }
         } catch (error) {
             console.error('FAILED...', error);
-            alert('Failed to send request. Please try again later.');
+            alert(`Failed to send request: ${error.message}`);
         } finally {
             setIsSubmitting(false);
         }

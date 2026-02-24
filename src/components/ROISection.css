@@ -1,274 +1,217 @@
-/* --- Section Layout --- */
+/* ===== ROI Section — Light Premium ===== */
 .roi {
     position: relative;
-    padding: 3rem 1.5rem;
-    /* Compact padding as requested */
-    background-color: #ffffff;
-    color: #1e293b;
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, #e8effe 0%, #f0f5ff 50%, #f8faff 100%);
+    color: #0f172a;
     overflow: hidden;
-    font-family: 'Inter', sans-serif;
-    min-height: auto;
-    /* Allow height to fit content */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    isolation: isolate;
-    text-align: center;
 }
 
-/* Moving Gradient Blobs - Vibrancy Boosted (From FeatureIntroSection) */
-.roi::before {
-    content: '';
+.roi__bg-grid {
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center,
-            rgba(37, 99, 235, 0.15) 0%,
-            /* Brighter Blue */
-            rgba(139, 92, 246, 0.15) 30%,
-            /* Brighter Violet */
-            rgba(255, 255, 255, 0) 70%);
-    background-size: 100% 100%;
-    animation: rotateGradient 20s linear infinite;
-    z-index: -1;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
     pointer-events: none;
-    filter: blur(80px);
 }
 
-.roi::after {
-    content: '';
+.roi__orb {
     position: absolute;
-    bottom: -30%;
-    right: -20%;
-    width: 150%;
-    height: 150%;
-    background: radial-gradient(circle at center,
-            rgba(6, 182, 212, 0.1) 0%,
-            /* Cyan */
-            rgba(255, 255, 255, 0) 60%);
-    animation: floatGradient 15s ease-in-out infinite alternate;
-    z-index: -1;
+    border-radius: 50%;
+    filter: blur(100px);
     pointer-events: none;
-    filter: blur(90px);
 }
 
-@keyframes rotateGradient {
-    0% {
-        transform: rotate(0deg);
-    }
+.roi__orb--1 {
+    width: 350px;
+    height: 350px;
+    background: rgba(37, 99, 235, 0.06);
+    top: -80px;
+    left: 20%;
+    animation: roiOrb 10s ease-in-out infinite;
+}
 
+.roi__orb--2 {
+    width: 300px;
+    height: 300px;
+    background: rgba(6, 182, 212, 0.04);
+    bottom: -60px;
+    right: 10%;
+    animation: roiOrb 14s ease-in-out infinite reverse;
+}
+
+@keyframes roiOrb {
+
+    0%,
     100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes floatGradient {
-    0% {
         transform: translate(0, 0);
     }
 
-    100% {
-        transform: translate(-50px, -50px);
+    50% {
+        transform: translate(25px, -15px);
     }
 }
 
 .roi__container {
-    max-width: 900px;
-    width: 100%;
     position: relative;
     z-index: 1;
+    max-width: 1000px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
-    /* Reduced gap */
+    gap: 3.5rem;
 }
 
-/* --- Header --- */
+/* Header */
 .roi__header {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.5s ease-out;
-    /* Standard transition, animation handled by class */
+    text-align: center;
+    max-width: 650px;
 }
 
-.roi-visible .roi__header {
-    opacity: 1;
-    transform: translateY(0);
+.roi__eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #2563eb;
+    padding: 0.45rem 1.4rem;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: 50px;
+    background: rgba(37, 99, 235, 0.06);
+    margin-bottom: 1.25rem;
 }
 
 .roi__title {
-    font-size: 3rem;
-    /* Compact title */
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
     color: #0f172a;
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+    letter-spacing: -1px;
 }
 
-.roi__title-highlight {
-    background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+.roi__title-gradient {
+    background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .roi__subtitle {
-    font-size: 1.25rem;
-    /* Compact subtitle */
+    font-size: 1.15rem;
     font-weight: 600;
     color: #334155;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .roi__description {
     font-size: 1rem;
     color: #64748b;
-    line-height: 1.6;
-    max-width: 700px;
-    margin: 0 auto 1.5rem;
+    line-height: 1.7;
 }
 
-.roi__intro-text {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 0.5rem;
+/* Cards */
+.roi__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
 }
 
-/* --- Actions (Stacked Buttons) --- */
-.roi__actions {
+.roi__card {
+    position: relative;
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(37, 99, 235, 0.06);
+    backdrop-filter: blur(8px);
+    text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
-    /* Compact gap */
     align-items: center;
-    width: 100%;
-    /* Base state hidden */
-    opacity: 0;
-}
-
-.roi-visible .roi__actions {
-    opacity: 1;
-    transition: opacity 0.5s ease-out 0.2s;
-    /* Basic fade in for container */
-}
-
-.roi__btn {
-    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 0.8rem 1.5rem;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 340px;
-    text-align: center;
-    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2), 0 2px 4px -1px rgba(37, 99, 235, 0.1);
-    transition: all 0.3s ease;
+    gap: 0.75rem;
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden;
     cursor: default;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-    /* Initially hidden for animation */
+.roi__card:hover {
+    background: #fff;
+    border-color: rgba(37, 99, 235, 0.12);
+    box-shadow: 0 16px 40px -10px rgba(37, 99, 235, 0.1);
+}
+
+.roi__card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #2563eb, #06b6d4, transparent);
     opacity: 0;
-    transform: translateY(20px);
+    transition: opacity 0.4s ease;
 }
 
-/* Trigger animation ONLY when class is added (on scroll) */
-.roi-visible .roi__btn {
-    animation: fadeInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-
-.roi-visible .roi__btn:nth-child(1) {
-    animation-delay: 0.2s;
-}
-
-.roi-visible .roi__btn:nth-child(2) {
-    animation-delay: 0.4s;
-}
-
-.roi-visible .roi__btn:nth-child(3) {
-    animation-delay: 0.6s;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.roi__btn:hover {
-    transform: translateY(-4px) scale(1.02);
-    /* Works because animation uses transform to 0, hover adds to it */
-    box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.4);
-    background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-/* Floating Animation for Container */
-.roi-visible .roi__container {
-    animation: floatContainer 6s ease-in-out infinite;
-}
-
-@keyframes floatContainer {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-/* --- Footer --- */
-.roi__footer {
-    opacity: 0;
-    transform: translateY(20px);
-    margin-top: 0.5rem;
-}
-
-.roi-visible .roi__footer {
+.roi__card:hover .roi__card-glow {
     opacity: 1;
-    transform: translateY(0);
-    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.8s;
-    /* Delayed transition */
 }
 
-.roi__footer p {
-    font-size: 1rem;
-    color: #475569;
+.roi__card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(6, 182, 212, 0.08));
+    border: 1px solid rgba(37, 99, 235, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2563eb;
+    transition: transform 0.4s ease;
+}
+
+.roi__card:hover .roi__card-icon {
+    transform: scale(1.1);
+}
+
+.roi__card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.roi__card-desc {
+    font-size: 0.88rem;
+    color: #64748b;
     line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
-/* --- Responsive --- */
+/* Footer */
+.roi__footer {
+    text-align: center;
+    max-width: 600px;
+}
+
+.roi__footer-text {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.roi__footer-text strong {
+    color: #0f172a;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .roi__title {
-        font-size: 2.2rem;
-    }
-
-    .roi__subtitle {
-        font-size: 1.1rem;
-    }
-
-    .roi__btn {
-        width: 100%;
-        max-width: 100%;
-    }
-
     .roi {
-        padding: 3rem 1.5rem;
+        padding: 4rem 1.5rem;
+    }
+
+    .roi__cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }

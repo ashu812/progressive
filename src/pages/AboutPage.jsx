@@ -146,8 +146,7 @@ function AboutPage() {
                             viewport={VP}
                             transition={{ duration: 0.7, delay: 0.25 }}
                         >
-                            <strong>Progressive Infosys</strong> is a technology company built specially
-                            for apparel exporters and garment manufacturers. We created{' '}
+                            <strong>Progressive Infosys</strong> is a technology solutions provider dedicated to apparel manufacturers and exporters. We created{' '}
                             <strong>vNiryat</strong> — an AI-powered ERP that speaks the language of
                             the factory floor.
                         </motion.p>
@@ -158,7 +157,7 @@ function AboutPage() {
                             viewport={VP}
                             transition={{ duration: 0.7, delay: 0.35 }}
                         >
-                            Progressive Infosys was not built in a boardroom. It was built from{' '}
+                            vNiryat was not built in a boardroom. It was built from{' '}
                             <strong>real factory experience</strong>, real production problems, and
                             real buyer expectations.
                         </motion.p>
@@ -169,7 +168,7 @@ function AboutPage() {
                             viewport={VP}
                             transition={{ duration: 0.7, delay: 0.45 }}
                         >
-                            Today, <strong>Progressive Infosys</strong> helps garment exporters bring{' '}
+                            Today, <strong>vNiryat</strong> helps garment exporters bring{' '}
                             <strong>clarity, control, and confidence</strong> back into their
                             operations.
                         </motion.p>
@@ -249,7 +248,7 @@ function AboutPage() {
                             viewport={VP}
                             transition={{ duration: 0.8, delay: 0.15 }}
                         >
-                            And <strong>Progressive Infosys</strong> was built to fix exactly this.
+                            And <strong>vNiryat</strong> was built to fix exactly this.
                         </motion.p>
                     </div>
                 </div>
@@ -361,7 +360,7 @@ function AboutPage() {
                             viewport={VP}
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
-                            Here's why factories choose Progressive Infosys:
+                            Here's why factories choose vNiryat:
                         </motion.p>
                     </div>
 

@@ -546,7 +546,9 @@
 
 .about-team__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    max-width: 550px;
+    margin: 0 auto;
     gap: 2rem;
 }
 

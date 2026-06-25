@@ -41,11 +41,6 @@ const teamMembers = [
         role: 'Founder',
         desc: 'With 20+ years of experience in the apparel industry, Mr. Swaraj Kumar Suman founded Progressive Infosys with a strong focus on quality, innovation, and timely delivery. He believes in combining craftsmanship, technology, and sustainable practices to create value for customers and partners worldwide.',
     },
-    {
-        name: 'Rajiv Pande',
-        role: 'Director',
-        desc: 'Change Management Professional with expertise in driving adoption of organizational transformations through stakeholder engagement, communication, and structured change methodologies. With over 40+ years of experience leading businesses to outstanding scale in the manufacturing industry, he is currently working on the AI empowered ERP solution.',
-    },
 ];
 
 function AboutPage() {
@@ -386,7 +381,7 @@ function AboutPage() {
                 </div>
             </section>
 
-            {/* ===== 6. Meet Our Team ===== */}
+            {/* ===== 6. Our Founder ===== */}
             <section className="about-team">
                 <div className="about-team__container">
                     <div className="about-team__header">
@@ -397,7 +392,7 @@ function AboutPage() {
                             viewport={VP}
                             transition={{ duration: 0.8 }}
                         >
-                            Meet Our <span className="about-team__title-highlight">Team</span>
+                            Our <span className="about-team__title-highlight">Founder</span>
                         </motion.h2>
                     </div>
 

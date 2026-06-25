@@ -62,8 +62,7 @@ function IndustriesReachSection() {
                     <p className="reach__description">
                         We built vNiryat for garment exporters like you, working under constant deadline pressure and
                         buyer expectations. Today, the same planning engine is expanding into other manufacturing
-                        sectors wherever small planning errors create large financial losses. You'll find vNiryat
-                        supporting factories across: India – Bangladesh – Vietnam – China
+                        sectors wherever small planning errors create large financial losses.
                     </p>
                 </div>
 

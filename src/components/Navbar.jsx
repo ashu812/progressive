@@ -72,7 +72,7 @@ function Navbar() {
                             }
                         }}
                     >
-                        WORK
+                        PRODUCT
                     </a>
                 </li>
             </ul>

@@ -2,26 +2,26 @@ import { useEffect, useRef } from 'react';
 import './IndustriesReachSection.css';
 import MovingDots from './MovingDots';
 
-const countries = [
+const cities = [
     {
-        name: "INDIA",
-        image: "https://images.unsplash.com/photo-1565514020176-db793617a7dc?auto=format&fit=crop&q=80&w=600",
-        flagCode: "in"
+        name: "DELHI",
+        image: "/cities/delhi.jpg",
+        label: "Capital Hub"
     },
     {
-        name: "BANGLADESH",
-        image: "https://images.unsplash.com/photo-1605218427368-35b8612808c4?auto=format&fit=crop&q=80&w=600",
-        flagCode: "bd"
+        name: "NOIDA",
+        image: "/cities/noida.jpg",
+        label: "Manufacturing Zone"
     },
     {
-        name: "VIETNAM",
-        image: "https://images.unsplash.com/photo-1595844884214-72b9474704b2?auto=format&fit=crop&q=80&w=600",
-        flagCode: "vn"
+        name: "GURGAON",
+        image: "/cities/gurgaon.jpg",
+        label: "Business District"
     },
     {
-        name: "CHINA",
-        image: "", // Removed image as requested
-        flagCode: "cn"
+        name: "SURAT",
+        image: "/cities/surat.jpg",
+        label: "Textile Capital"
     }
 ];
 
@@ -48,7 +48,7 @@ function IndustriesReachSection() {
     }, []);
 
     // Duplicate list for infinite scroll
-    const marqueeList = [...countries, ...countries, ...countries];
+    const marqueeList = [...cities, ...cities, ...cities];
 
     return (
         <section className="reach" ref={sectionRef}>
@@ -69,18 +69,21 @@ function IndustriesReachSection() {
                 {/* Marquee Container */}
                 <div className="reach__marquee-wrapper">
                     <div className="reach__marquee">
-                        {marqueeList.map((country, index) => (
+                        {marqueeList.map((city, index) => (
                             <div className="reach__card" key={index}>
                                 <div
                                     className="reach__card-bg"
-                                    style={{ backgroundImage: `url(${country.image})` }}
+                                    style={{ backgroundImage: `url(${city.image})` }}
                                 ></div>
                                 <div className="reach__card-overlay"></div>
-                                <div
-                                    className="reach__card-flag"
-                                    style={{ backgroundImage: `url(https://flagcdn.com/w640/${country.flagCode}.png)` }}
-                                ></div>
-                                <h4 className="reach__card-title">{country.name}</h4>
+                                <div className="reach__card-pin">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                    </svg>
+                                </div>
+                                <div className="reach__card-content">
+                                    <h4 className="reach__card-title">{city.name}</h4>
+                                </div>
                             </div>
                         ))}
                     </div>
